@@ -6,163 +6,175 @@
     <meta charset="UTF-8">
 
     <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
 
     <title>Internship Portal</title>
 
     <link rel="stylesheet"
-    href="{{ url_for('static', filename='style.css') }}">
+          href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
 
-<div class="main-container">
+<div class="container">
 
-    <div class="card">
+    <!-- LEFT PANEL -->
 
-        <div class="left">
+    <div class="left-panel">
 
-            <h1>🚀 Internship Portal</h1>
+        <h1>🚀 Internship Portal</h1>
 
-            <p>Apply for your dream internship</p>
+        <p>
+            Apply for your dream internship
+        </p>
 
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
-        </div>
+    </div>
 
-        <div class="right">
+    <!-- RIGHT PANEL -->
 
-            <form action="/internships"
-                  method="POST"
-                  enctype="multipart/form-data">
+    <div class="right-panel">
 
-                <input type="text"
-                       name="name"
-                       placeholder="👤 Full Name"
-                       required>
+        <h2>Apply Internship</h2>
 
-                <input type="email"
-                       name="email"
-                       placeholder="📧 Email Address"
-                       required>
+        <form action="/internships"
+              method="POST"
+              enctype="multipart/form-data">
 
-                <input type="text"
-                       name="phone"
-                       placeholder="📱 10 Digit Mobile Number"
-                       pattern="[0-9]{10}"
-                       maxlength="10"
-                       minlength="10"
-                       required>
+            <input type="text"
+                   name="name"
+                   placeholder="👤 Full Name"
+                   required>
 
-                <select name="qualification" required>
+            <input type="email"
+                   name="email"
+                   placeholder="📧 Email Address"
+                   required>
 
-                    <option value="">
-                        🎓 Choose Qualification
-                    </option>
+            <input type="text"
+                   name="phone"
+                   placeholder="📱 10 Digit Mobile Number"
+                   pattern="[0-9]{10}"
+                   maxlength="10"
+                   minlength="10"
+                   required>
 
-                    <option>B.Tech</option>
-                    <option>BCA</option>
-                    <option>MCA</option>
-                    <option>B.Sc</option>
-                    <option>M.Tech</option>
-                    <option>Diploma</option>
+            <!-- Qualification -->
 
-                </select>
+            <select name="qualification" required>
 
-                <select name="gender" required>
+                <option value="">
+                    🎓 Choose Qualification
+                </option>
 
-                    <option value="">
-                        🚻 Choose Gender
-                    </option>
+                <option>B.Tech</option>
+                <option>BCA</option>
+                <option>MCA</option>
+                <option>B.Sc</option>
+                <option>M.Tech</option>
+                <option>Diploma</option>
 
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
+            </select>
 
-                </select>
+            <!-- Gender -->
 
-                <select name="skill_level" required>
+            <select name="gender" required>
 
-                    <option value="">
-                        📊 Choose Skill Level
-                    </option>
+                <option value="">
+                    🚻 Choose Gender
+                </option>
 
-                    <option>Beginner</option>
-                    <option>Intermediate</option>
-                    <option>Advanced</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
 
-                </select>
+            </select>
 
-                <select name="skill" required>
+            <!-- Skill Level -->
 
-                    <option value="">
-                        💻 Select Skill
-                    </option>
+            <select name="skill_level" required>
 
-                    <option>Python</option>
-                    <option>Java</option>
-                    <option>C++</option>
-                    <option>JavaScript</option>
-                    <option>HTML/CSS</option>
+                <option value="">
+                    📊 Choose Skill Level
+                </option>
 
-                </select>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
 
-                <select name="domain" required>
+            </select>
 
-                    <option value="">
-                        🎯 Select Domain
-                    </option>
+            <!-- Skill -->
 
-                    <option>Frontend</option>
-                    <option>Backend</option>
-                    <option>AI/ML</option>
-                    <option>Data Science</option>
-                    <option>Cloud Computing</option>
-                    <option>DevOps</option>
-                    <option>Full Stack</option>
+            <select name="skill" required>
 
-                </select>
+                <option value="">
+                    💻 Select Skill
+                </option>
 
-                <select name="company" required>
+                <option>Python</option>
+                <option>Java</option>
+                <option>C++</option>
+                <option>JavaScript</option>
+                <option>HTML/CSS</option>
 
-                    <option value="">
-                        🏢 Select Company
-                    </option>
+            </select>
 
-                    <option>TCS</option>
-                    <option>Infosys</option>
-                    <option>Wipro</option>
-                    <option>Google</option>
-                    <option>Microsoft</option>
-                    <option>IBM</option>
-                    <option>Amazon</option>
-                    <option>Accenture</option>
-                    <option>Cognizant</option>
-                    <option>Capgemini</option>
+            <!-- Domain -->
 
-                </select>
+            <select name="domain" required>
 
-                <label class="upload-text">
+                <option value="">
+                    🎯 Select Domain
+                </option>
 
-                    📄 Upload Resume Only
+                <option>Frontend</option>
+                <option>Backend</option>
+                <option>AI/ML</option>
+                <option>Data Science</option>
+                <option>Cloud Computing</option>
+                <option>DevOps</option>
+                <option>Full Stack</option>
 
-                </label>
+            </select>
 
-                <input type="file"
-                       name="resume"
-                       accept=".pdf,.doc,.docx"
-                       required>
+            <!-- Company -->
 
-                <button type="submit">
+            <select name="company" required>
 
-                    🚀 Apply Internship
+                <option value="">
+                    🏢 Select Company
+                </option>
 
-                </button>
+                <option>TCS</option>
+                <option>Infosys</option>
+                <option>Wipro</option>
+                <option>Google</option>
+                <option>Microsoft</option>
+                <option>IBM</option>
+                <option>Amazon</option>
+                <option>Accenture</option>
+                <option>Cognizant</option>
+                <option>Capgemini</option>
 
-            </form>
+            </select>
 
-        </div>
+            <!-- Resume Upload -->
+
+            <input type="file"
+                   name="resume"
+                   accept=".pdf,.doc,.docx"
+                   required>
+
+            <button type="submit">
+
+                🚀 Apply Internship
+
+            </button>
+
+        </form>
 
     </div>
 
