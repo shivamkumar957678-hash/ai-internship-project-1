@@ -21,6 +21,7 @@ body{
     border-radius:20px;
     overflow:hidden;
     display:flex;
+    align-items:center;
     box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
@@ -28,7 +29,7 @@ body{
     width:40%;
     background:linear-gradient(to bottom,#8e2de2,#4a00e0);
     color:white;
-    padding:40px;
+    padding:30px;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -37,18 +38,18 @@ body{
 }
 
 .left-panel h1{
-    font-size:50px;
-    margin-bottom:20px;
+    font-size:42px;
+    margin-bottom:15px;
 }
 
 .left-panel p{
-    font-size:22px;
+    font-size:20px;
     line-height:1.5;
 }
 
 .left-panel img{
-    width:250px;
-    margin-top:20px;
+    width:120px;
+    margin-top:15px;
 }
 
 .right-panel{
@@ -96,8 +97,6 @@ button:hover{
     background:#2575fc;
 }
 
-/* RESULT PAGE */
-
 .result-box{
     text-align:center;
     padding:40px;
@@ -128,24 +127,24 @@ button:hover{
 
     .left-panel{
         width:100%;
-        padding:25px;
+        padding:15px;
     }
 
     .left-panel h1{
-        font-size:34px;
+        font-size:28px;
     }
 
     .left-panel p{
-        font-size:18px;
+        font-size:16px;
     }
 
     .left-panel img{
-        width:180px;
+        width:140px;
     }
 
     .right-panel{
         width:100%;
-        padding:25px;
+        padding:20px;
     }
 
     .right-panel h2{
