@@ -2,7 +2,10 @@
 <html>
 <head>
 
-    <title>Internship Applied</title>
+    <title>Internship Portal</title>
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet"
     href="{{ url_for('static', filename='style.css') }}">
@@ -11,35 +14,178 @@
 
 <body>
 
-<div class="success-card">
+<div class="navbar">
 
-    <h1>🎉 Internship Applied Successfully!</h1>
+    <div class="logo">
+        🚀 Internship Portal
+    </div>
 
-    <div class="details">
+    <div class="nav-links">
 
-        <p><b>Name :</b> {{ name }}</p>
-
-        <p><b>Email :</b> {{ email }}</p>
-
-        <p><b>Contact :</b> {{ phone }}</p>
-
-        <p><b>Skill :</b> {{ skill }}</p>
-
-        <p><b>Domain :</b> {{ domain }}</p>
-
-        <p><b>Company :</b> {{ company }}</p>
+        <a href="#">Apply</a>
+        <a href="#">Task</a>
+        <a href="#">Offer Letter</a>
 
     </div>
 
-    <a href="/success?skill={{ skill }}">
+</div>
 
-        <button>
+<div class="main-container">
 
-            🚀 Start Task Work
+    <div class="form-container">
 
-        </button>
+        <div class="left-panel">
 
-    </a>
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+
+            <h1>Internship Portal</h1>
+
+            <p>
+                Apply for your dream internship
+            </p>
+
+        </div>
+
+        <div class="right-panel">
+
+            <form action="/internships"
+            method="POST">
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input type="text"
+                    name="name"
+                    required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input type="email"
+                    name="email"
+                    required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Mobile Number</label>
+
+                    <input type="text"
+                    name="phone"
+                    pattern="[0-9]{10}"
+                    required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Qualification</label>
+
+                    <select name="qualification">
+
+                        <option>B.Tech</option>
+                        <option>BCA</option>
+                        <option>MCA</option>
+                        <option>B.Sc</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Gender</label>
+
+                    <select name="gender">
+
+                        <option>Male</option>
+                        <option>Female</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Skill Level</label>
+
+                    <select name="skill_level">
+
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Skill</label>
+
+                    <select name="skill">
+
+                        <option>Python</option>
+                        <option>Java</option>
+                        <option>C++</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Domain</label>
+
+                    <select name="domain">
+
+                        <option>AI/ML</option>
+                        <option>Frontend</option>
+                        <option>Backend</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Company</label>
+
+                    <select name="company">
+
+                        <option>TCS</option>
+                        <option>Infosys</option>
+                        <option>Wipro</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Upload Resume</label>
+
+                    <input type="file"
+                    required>
+
+                </div>
+
+                <button class="submit-btn">
+
+                    🚀 Apply Internship
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
 
 </div>
 
