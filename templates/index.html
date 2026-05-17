@@ -1,178 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Internship Portal</title>
 
-    <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<style>
 
-    <title>Internship Portal</title>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+body{
+    background:linear-gradient(to right,#f6c1df,#c7d7ff);
+    min-height:100vh;
+}
 
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    padding:15px 30px;
+    background:linear-gradient(to right,#5f2cff,#ff4f8b);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    width:95%;
+    max-width:1300px;
+    margin:40px auto;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    flex-wrap:wrap;
+}
+
+/* LEFT SIDE */
+
+.left{
+    flex:1;
+    min-width:300px;
+    text-align:center;
+}
+
+.left img{
+    width:100%;
+    max-width:450px;
+}
+
+.left h1{
+    font-size:55px;
+    color:#7b2cff;
+    margin-top:15px;
+}
+
+.left p{
+    margin-top:10px;
+    font-size:22px;
+    color:#555;
+}
+
+/* RIGHT FORM */
+
+.right{
+    flex:1;
+    min-width:320px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.input-box{
+    width:100%;
+}
+
+.input-box input,
+.input-box select{
+    width:100%;
+    padding:18px;
+    border-radius:15px;
+    border:2px solid #ddd;
+    font-size:18px;
+    outline:none;
+}
+
+.input-box input:focus,
+.input-box select:focus{
+    border-color:#7b2cff;
+}
+
+.btn{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(to right,#5f2cff,#ff4f8b);
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.02);
+}
+
+/* SUCCESS PAGE */
+
+.success-box{
+    width:90%;
+    max-width:700px;
+    margin:60px auto;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.success-box h1{
+    color:#7b2cff;
+    margin-bottom:20px;
+    font-size:45px;
+}
+
+.success-box p{
+    font-size:20px;
+    margin:10px 0;
+}
+
+.task-btn{
+    margin-top:25px;
+}
+
+/* TASK PAGE */
+
+.task-box{
+    width:90%;
+    max-width:700px;
+    margin:60px auto;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.task-box h1{
+    color:#7b2cff;
+    margin-bottom:15px;
+    text-align:center;
+    font-size:42px;
+}
+
+.task-box ul{
+    margin:20px 0;
+    padding-left:25px;
+}
+
+.task-box ul li{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.upload-box{
+    margin-top:25px;
+}
+
+/* OFFER LETTER */
+
+.offer-container{
+    width:95%;
+    max-width:1000px;
+    margin:40px auto;
+    background:white;
+    border:8px solid #6fd34f;
+    border-radius:25px;
+    padding:50px;
+    position:relative;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.offer-container h1{
+    text-align:center;
+    font-size:60px;
+    margin-bottom:40px;
+}
+
+.offer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-bottom:40px;
+}
+
+.offer-item h3{
+    color:gray;
+    margin-bottom:10px;
+    font-size:24px;
+}
+
+.offer-item p{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.offer-text{
+    font-size:24px;
+    line-height:1.7;
+    margin-top:30px;
+}
+
+.offer-footer{
+    margin-top:60px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.download-btn{
+    margin-top:35px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .container{
+        flex-direction:column;
+        padding:25px;
+    }
+
+    .left h1{
+        font-size:40px;
+    }
+
+    .left p{
+        font-size:18px;
+    }
+
+    .offer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .offer-container{
+        padding:25px;
+    }
+
+    .offer-container h1{
+        font-size:38px;
+    }
+
+    .offer-item p{
+        font-size:22px;
+    }
+
+    .offer-text{
+        font-size:19px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
+<div class="navbar">
+    <div class="logo">🚀 Internship Portal</div>
+
+    <div class="nav-links">
+        <a href="#">1 Apply</a>
+        <a href="#">2 Task Work</a>
+        <a href="#">3 Offer Letter</a>
+    </div>
+</div>
+
+<!-- HOME PAGE -->
+
 <div class="container">
 
-    <!-- LEFT PANEL -->
-
-    <div class="left-panel">
-
-        <h1>🚀 Internship Portal</h1>
-
-        <p>
-            Apply for your dream internship
-        </p>
-
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-
+    <div class="left">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+        <h1>Internship Portal</h1>
+        <p>Apply for your dream internship</p>
     </div>
 
-    <!-- RIGHT PANEL -->
+    <div class="right">
 
-    <div class="right-panel">
+        <form action="/internships" method="POST">
 
-        <h2>Apply Internship</h2>
+            <div class="input-box">
+                <input type="text" name="name" placeholder="👤 Full Name" required>
+            </div>
 
-        <form action="/internships"
-              method="POST"
-              enctype="multipart/form-data">
+            <div class="input-box">
+                <input type="email" name="email" placeholder="📧 Email Address" required>
+            </div>
 
-            <input type="text"
-                   name="name"
-                   placeholder="👤 Full Name"
-                   required>
+            <div class="input-box">
+                <input type="text" name="contact" placeholder="📱 Mobile Number" required>
+            </div>
 
-            <input type="email"
-                   name="email"
-                   placeholder="📧 Email Address"
-                   required>
+            <div class="input-box">
+                <select name="skill" required>
+                    <option value="">💻 Select Skill</option>
+                    <option>Python</option>
+                    <option>Java</option>
+                    <option>Web Development</option>
+                    <option>Machine Learning</option>
+                </select>
+            </div>
 
-            <input type="text"
-                   name="phone"
-                   placeholder="📱 10 Digit Mobile Number"
-                   pattern="[0-9]{10}"
-                   maxlength="10"
-                   minlength="10"
-                   required>
+            <div class="input-box">
+                <select name="domain" required>
+                    <option value="">🎯 Select Domain</option>
+                    <option>AI/ML</option>
+                    <option>Data Science</option>
+                    <option>Web Development</option>
+                    <option>Cyber Security</option>
+                </select>
+            </div>
 
-            <!-- Qualification -->
+            <div class="input-box">
+                <select name="company" required>
+                    <option value="">🏢 Select Company</option>
+                    <option>TCS</option>
+                    <option>Infosys</option>
+                    <option>Wipro</option>
+                    <option>Amazon</option>
+                </select>
+            </div>
 
-            <select name="qualification" required>
-
-                <option value="">
-                    🎓 Choose Qualification
-                </option>
-
-                <option>B.Tech</option>
-                <option>BCA</option>
-                <option>MCA</option>
-                <option>B.Sc</option>
-                <option>M.Tech</option>
-                <option>Diploma</option>
-
-            </select>
-
-            <!-- Gender -->
-
-            <select name="gender" required>
-
-                <option value="">
-                    🚻 Choose Gender
-                </option>
-
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-
-            </select>
-
-            <!-- Skill Level -->
-
-            <select name="skill_level" required>
-
-                <option value="">
-                    📊 Choose Skill Level
-                </option>
-
-                <option>Beginner</option>
-                <option>Intermediate</option>
-                <option>Advanced</option>
-
-            </select>
-
-            <!-- Skill -->
-
-            <select name="skill" required>
-
-                <option value="">
-                    💻 Select Skill
-                </option>
-
-                <option>Python</option>
-                <option>Java</option>
-                <option>C++</option>
-                <option>JavaScript</option>
-                <option>HTML/CSS</option>
-
-            </select>
-
-            <!-- Domain -->
-
-            <select name="domain" required>
-
-                <option value="">
-                    🎯 Select Domain
-                </option>
-
-                <option>Frontend</option>
-                <option>Backend</option>
-                <option>AI/ML</option>
-                <option>Data Science</option>
-                <option>Cloud Computing</option>
-                <option>DevOps</option>
-                <option>Full Stack</option>
-
-            </select>
-
-            <!-- Company -->
-
-            <select name="company" required>
-
-                <option value="">
-                    🏢 Select Company
-                </option>
-
-                <option>TCS</option>
-                <option>Infosys</option>
-                <option>Wipro</option>
-                <option>Google</option>
-                <option>Microsoft</option>
-                <option>IBM</option>
-                <option>Amazon</option>
-                <option>Accenture</option>
-                <option>Cognizant</option>
-                <option>Capgemini</option>
-
-            </select>
-
-            <!-- Resume Upload -->
-
-            <input type="file"
-                   name="resume"
-                   accept=".pdf,.doc,.docx"
-                   required>
-
-            <button type="submit">
-
-                🚀 Apply Internship
-
-            </button>
+            <button class="btn">🚀 Apply Internship</button>
 
         </form>
 
