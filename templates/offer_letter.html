@@ -1,258 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Offer Letter</title>
+    <title>Internship Portal</title>
 
-<style>
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
 
-body{
-    background:#eefaf0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:20px;
-}
-
-.main-box{
-    width:100%;
-    max-width:850px;
-    text-align:center;
-}
-
-.top-heading{
-    color:#18a558;
-    margin-bottom:10px;
-    font-size:40px;
-}
-
-.sub{
-    color:#555;
-    margin-bottom:30px;
-}
-
-.offer-box{
-    background:white;
-    border:5px solid #7ed957;
-    border-radius:12px;
-    padding:40px;
-    position:relative;
-    text-align:left;
-    box-shadow:0 0 20px rgba(0,0,0,0.1);
-}
-
-.corner{
-    position:absolute;
-    width:40px;
-    height:40px;
-    border-color:#7ed957;
-}
-
-.top-left{
-    top:10px;
-    left:10px;
-    border-top:4px solid;
-    border-left:4px solid;
-}
-
-.top-right{
-    top:10px;
-    right:10px;
-    border-top:4px solid;
-    border-right:4px solid;
-}
-
-.bottom-left{
-    bottom:10px;
-    left:10px;
-    border-bottom:4px solid;
-    border-left:4px solid;
-}
-
-.bottom-right{
-    bottom:10px;
-    right:10px;
-    border-bottom:4px solid;
-    border-right:4px solid;
-}
-
-.title{
-    text-align:center;
-    font-size:38px;
-    font-weight:bold;
-    margin-bottom:40px;
-}
-
-.info-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:25px;
-    margin-bottom:35px;
-}
-
-.info-box h3{
-    color:#777;
-    margin-bottom:8px;
-    font-size:17px;
-}
-
-.info-box p{
-    font-size:18px;
-    font-weight:bold;
-    color:#222;
-}
-
-.letter-text{
-    line-height:1.9;
-    font-size:18px;
-    color:#333;
-    margin-top:20px;
-}
-
-.footer{
-    margin-top:50px;
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-}
-
-.sign{
-    text-align:right;
-}
-
-.sign img{
-    width:120px;
-}
-
-.badge{
-    position:absolute;
-    top:20px;
-    right:20px;
-    font-size:55px;
-}
-
-@media(max-width:768px){
-
-    .offer-box{
-        padding:25px;
-    }
-
-    .title{
-        font-size:28px;
-    }
-
-    .top-heading{
-        font-size:28px;
-    }
-
-    .info-grid{
-        grid-template-columns:1fr;
-    }
-
-    .letter-text{
-        font-size:16px;
-    }
-
-    .footer{
-        flex-direction:column;
-        gap:30px;
-        align-items:flex-start;
-    }
-
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="main-box">
+<div class="navbar">
 
-    <h1 class="top-heading">🎉 Offer Letter Generated!</h1>
+    <div class="logo">
+        🚀 Internship Portal
+    </div>
 
-    <p class="sub">
-        Congratulations! You have successfully completed your task.
-    </p>
+    <div class="nav-links">
 
-    <div class="offer-box">
+        <a href="#">Apply</a>
+        <a href="#">Task</a>
+        <a href="#">Offer Letter</a>
 
-        <div class="corner top-left"></div>
-        <div class="corner top-right"></div>
-        <div class="corner bottom-left"></div>
-        <div class="corner bottom-right"></div>
+    </div>
 
-        <div class="badge">🏅</div>
+</div>
 
-        <div class="title">
-            OFFER LETTER
-        </div>
+<div class="main-container">
 
-        <div class="info-grid">
+    <div class="form-container">
 
-            <div class="info-box">
-                <h3>Name</h3>
-                <p>{{name}}</p>
-            </div>
+        <div class="left-panel">
 
-            <div class="info-box">
-                <h3>Contact</h3>
-                <p>{{mobile}}</p>
-            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
 
-            <div class="info-box">
-                <h3>Company</h3>
-                <p>TCS</p>
-            </div>
+            <h1>Internship Portal</h1>
 
-            <div class="info-box">
-                <h3>Domain</h3>
-                <p>{{internship}}</p>
-            </div>
-
-            <div class="info-box">
-                <h3>Role</h3>
-                <p>{{internship}} Intern</p>
-            </div>
-
-            <div class="info-box">
-                <h3>Date</h3>
-                <p>{{date}}</p>
-            </div>
+            <p>
+                Apply for your dream internship
+            </p>
 
         </div>
 
-        <div class="letter-text">
+        <div class="right-panel">
 
-            We are pleased to inform you that you have been selected
-            for the <b>{{internship}} Intern</b> position at
-            <b>TCS</b>.
+            <form action="/internships"
+            method="POST">
 
-            <br><br>
+                <div class="form-group">
 
-            We look forward to having you on our team!
+                    <label>Full Name</label>
 
-        </div>
+                    <input type="text"
+                    name="name"
+                    required>
 
-        <div class="footer">
+                </div>
 
-            <div>
-                <b>Best Regards,</b><br>
-                HR Team
-            </div>
+                <div class="form-group">
 
-            <div class="sign">
-                ✍️
-            </div>
+                    <label>Email</label>
+
+                    <input type="email"
+                    name="email"
+                    required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Mobile Number</label>
+
+                    <input type="text"
+                    name="phone"
+                    pattern="[0-9]{10}"
+                    required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Qualification</label>
+
+                    <select name="qualification">
+
+                        <option>B.Tech</option>
+                        <option>BCA</option>
+                        <option>MCA</option>
+                        <option>B.Sc</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Gender</label>
+
+                    <select name="gender">
+
+                        <option>Male</option>
+                        <option>Female</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Skill Level</label>
+
+                    <select name="skill_level">
+
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Skill</label>
+
+                    <select name="skill">
+
+                        <option>Python</option>
+                        <option>Java</option>
+                        <option>C++</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Domain</label>
+
+                    <select name="domain">
+
+                        <option>AI/ML</option>
+                        <option>Frontend</option>
+                        <option>Backend</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Company</label>
+
+                    <select name="company">
+
+                        <option>TCS</option>
+                        <option>Infosys</option>
+                        <option>Wipro</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Upload Resume</label>
+
+                    <input type="file"
+                    required>
+
+                </div>
+
+                <button class="submit-btn">
+
+                    🚀 Apply Internship
+
+                </button>
+
+            </form>
 
         </div>
 
