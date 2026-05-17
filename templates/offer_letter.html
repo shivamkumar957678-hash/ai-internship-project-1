@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Offer Letter</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="offer-main">
+
+    <div class="offer-paper">
+
+        <div class="top-section">
+
+            <h1>🏆 OFFER LETTER</h1>
+
+            <h3>Internship Completion Certificate</h3>
+
+        </div>
+
+        <div class="middle-section">
+
+            <p class="text">
+
+                This is to certify that
+
+            </p>
+
+            <h2>{{ name }}</h2>
+
+            <p class="text">
+
+                has successfully completed internship in
+
+            </p>
+
+            <h3>{{ domain }}</h3>
+
+            <p class="text">
+
+                using <b>{{ skill }}</b> technology
+                at <b>{{ company }}</b>.
+
+            </p>
+
+            <div class="duration-box">
+
+                📅 Internship Duration :
+                <b>2 Months</b>
+
+            </div>
+
+            <div class="date-box">
+
+                ✅ Internship Start :
+                <b>01 May 2026</b>
+
+                <br><br>
+
+                ✅ Internship End :
+                <b>01 July 2026</b>
+
+            </div>
+
+        </div>
+
+        <div class="bottom-section">
+
+            <div class="sign">
+
+                ___________________
+
+                <br>
+
+                HR Team
+
+            </div>
+
+            <div class="stamp">
+
+                ⭐ Approved
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

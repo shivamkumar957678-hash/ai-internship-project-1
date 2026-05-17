@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Internship Portal</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <div class="card">
+
+        <div class="left">
+
+            <h1>🚀 Internship Portal</h1>
+
+            <p>Apply for your dream internship</p>
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png">
+
+        </div>
+
+        <div class="right">
+
+            <form action="/internships"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <input type="text"
+                       name="name"
+                       placeholder="👤 Full Name"
+                       required>
+
+                <input type="email"
+                       name="email"
+                       placeholder="📧 Email Address"
+                       required>
+
+                <input type="text"
+                       name="phone"
+                       placeholder="📱 10 Digit Mobile Number"
+                       pattern="[0-9]{10}"
+                       maxlength="10"
+                       minlength="10"
+                       required>
+
+                <select name="qualification" required>
+
+                    <option value="">
+                        🎓 Choose Qualification
+                    </option>
+
+                    <option>B.Tech</option>
+                    <option>BCA</option>
+                    <option>MCA</option>
+                    <option>B.Sc</option>
+                    <option>M.Tech</option>
+                    <option>Diploma</option>
+
+                </select>
+
+                <select name="gender" required>
+
+                    <option value="">
+                        🚻 Choose Gender
+                    </option>
+
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+
+                </select>
+
+                <select name="skill_level" required>
+
+                    <option value="">
+                        📊 Choose Skill Level
+                    </option>
+
+                    <option>Beginner</option>
+                    <option>Intermediate</option>
+                    <option>Advanced</option>
+
+                </select>
+
+                <select name="skill" required>
+
+                    <option value="">
+                        💻 Select Skill
+                    </option>
+
+                    <option>Python</option>
+                    <option>Java</option>
+                    <option>C++</option>
+                    <option>JavaScript</option>
+                    <option>HTML/CSS</option>
+
+                </select>
+
+                <select name="domain" required>
+
+                    <option value="">
+                        🎯 Select Domain
+                    </option>
+
+                    <option>Frontend</option>
+                    <option>Backend</option>
+                    <option>AI/ML</option>
+                    <option>Data Science</option>
+                    <option>Cloud Computing</option>
+                    <option>DevOps</option>
+                    <option>Full Stack</option>
+
+                </select>
+
+                <select name="company" required>
+
+                    <option value="">
+                        🏢 Select Company
+                    </option>
+
+                    <option>TCS</option>
+                    <option>Infosys</option>
+                    <option>Wipro</option>
+                    <option>Google</option>
+                    <option>Microsoft</option>
+                    <option>IBM</option>
+                    <option>Amazon</option>
+                    <option>Accenture</option>
+                    <option>Cognizant</option>
+                    <option>Capgemini</option>
+
+                </select>
+
+                <label class="upload-text">
+
+                    📄 Upload Resume Only
+
+                </label>
+
+                <input type="file"
+                       name="resume"
+                       accept=".pdf,.doc,.docx"
+                       required>
+
+                <button type="submit">
+
+                    🚀 Apply Internship
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

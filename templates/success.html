@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Task Work</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="task-card">
+
+    <h1>💻 Internship Task</h1>
+
+    <p>Complete your assigned internship task.</p>
+
+    <div class="task-box">
+
+        {% if skill == "Python" %}
+
+            <h2>🐍 Python Task</h2>
+
+            <p>Create Student Management System using Python.</p>
+
+            <ul>
+                <li>Add Student</li>
+                <li>Delete Student</li>
+                <li>View Student</li>
+                <li>Use File Handling</li>
+            </ul>
+
+        {% elif skill == "Java" %}
+
+            <h2>☕ Java Task</h2>
+
+            <p>Create ATM Management System using Java.</p>
+
+            <ul>
+                <li>Withdraw Money</li>
+                <li>Deposit Money</li>
+                <li>Balance Check</li>
+                <li>Use OOP Concept</li>
+            </ul>
+
+        {% elif skill == "C++" %}
+
+            <h2>💻 C++ Task</h2>
+
+            <p>Create Library Management System using C++.</p>
+
+            <ul>
+                <li>Add Book</li>
+                <li>Issue Book</li>
+                <li>Return Book</li>
+                <li>Use Classes</li>
+            </ul>
+
+        {% elif skill == "JavaScript" %}
+
+            <h2>🌐 JavaScript Task</h2>
+
+            <p>Create To-Do List Website.</p>
+
+            <ul>
+                <li>Add Task</li>
+                <li>Delete Task</li>
+                <li>Mark Complete</li>
+                <li>Responsive UI</li>
+            </ul>
+
+        {% elif skill == "HTML/CSS" %}
+
+            <h2>🎨 HTML CSS Task</h2>
+
+            <p>Create Personal Portfolio Website.</p>
+
+            <ul>
+                <li>Home Section</li>
+                <li>About Section</li>
+                <li>Project Section</li>
+                <li>Contact Form</li>
+            </ul>
+
+        {% endif %}
+
+    </div>
+
+    <h3>📤 Upload Your Completed Work</h3>
+
+    <input type="file">
+
+    <a href="/offer-letter">
+
+        <button>
+
+            ✅ Submit Task
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+</html>

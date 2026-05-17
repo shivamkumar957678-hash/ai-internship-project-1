@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Internship Applied</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="success-card">
+
+    <h1>🎉 Internship Applied Successfully!</h1>
+
+    <div class="details">
+
+        <p><b>Name :</b> {{ name }}</p>
+
+        <p><b>Email :</b> {{ email }}</p>
+
+        <p><b>Contact :</b> {{ phone }}</p>
+
+        <p><b>Skill :</b> {{ skill }}</p>
+
+        <p><b>Domain :</b> {{ domain }}</p>
+
+        <p><b>Company :</b> {{ company }}</p>
+
+    </div>
+
+    <a href="/success?skill={{ skill }}">
+
+        <button>
+
+            🚀 Start Task Work
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+</html>
