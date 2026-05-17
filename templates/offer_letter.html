@@ -1,92 +1,182 @@
+# templates/offer_letter.html
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offer Letter</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
 
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='style.css') }}">
+        body{
+            background:#f4f4f4;
+            padding:20px;
+        }
 
+        .letter-box{
+            max-width:900px;
+            margin:auto;
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .top{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .top h1{
+            color:#6a11cb;
+            font-size:38px;
+            margin-bottom:10px;
+        }
+
+        .top p{
+            color:#555;
+            font-size:18px;
+        }
+
+        .date{
+            text-align:right;
+            margin-bottom:25px;
+            color:#444;
+        }
+
+        .content{
+            line-height:1.9;
+            color:#333;
+            font-size:18px;
+        }
+
+        .highlight{
+            color:#6a11cb;
+            font-weight:bold;
+        }
+
+        .details{
+            background:#f7f0ff;
+            padding:20px;
+            border-radius:10px;
+            margin:25px 0;
+        }
+
+        .details p{
+            margin:10px 0;
+        }
+
+        .footer{
+            margin-top:40px;
+        }
+
+        .signature{
+            margin-top:60px;
+        }
+
+        .btn-box{
+            text-align:center;
+            margin-top:40px;
+        }
+
+        .btn{
+            display:inline-block;
+            background:#6a11cb;
+            color:white;
+            text-decoration:none;
+            padding:14px 30px;
+            border-radius:8px;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:#4d0ea0;
+        }
+
+        @media(max-width:768px){
+            .letter-box{
+                padding:20px;
+            }
+
+            .top h1{
+                font-size:28px;
+            }
+
+            .content{
+                font-size:16px;
+            }
+
+            .btn{
+                width:100%;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="offer-main">
+<div class="letter-box">
 
-    <div class="offer-paper">
+    <div class="top">
+        <h1>Internship Offer Letter</h1>
+        <p>AI Internship Portal</p>
+    </div>
 
-        <div class="top-section">
+    <div class="date">
+        <p>Date: {{date}}</p>
+    </div>
 
-            <h1>🏆 OFFER LETTER</h1>
+    <div class="content">
+        <p>Dear <span class="highlight">{{name}}</span>,</p>
 
-            <h3>Internship Completion Certificate</h3>
+        <br>
 
+        <p>
+            We are pleased to offer you the position of 
+            <span class="highlight">{{internship}}</span> Intern 
+            at <span class="highlight">AI Internship Portal</span>.
+        </p>
+
+        <div class="details">
+            <p><strong>Intern Name:</strong> {{name}}</p>
+            <p><strong>Email:</strong> {{email}}</p>
+            <p><strong>Mobile:</strong> {{mobile}}</p>
+            <p><strong>Qualification:</strong> {{qualification}}</p>
+            <p><strong>Internship Domain:</strong> {{internship}}</p>
+            <p><strong>Duration:</strong> 3 Months</p>
+            <p><strong>Mode:</strong> Remote</p>
         </div>
 
-        <div class="middle-section">
+        <p>
+            During this internship, you will gain practical knowledge,
+            work on real-world projects, and improve your technical skills.
+        </p>
 
-            <p class="text">
+        <br>
 
-                This is to certify that
+        <p>
+            We look forward to having you on our team and wish you success
+            in your internship journey.
+        </p>
 
-            </p>
+        <div class="footer">
+            <p>Sincerely,</p>
 
-            <h2>{{ name }}</h2>
-
-            <p class="text">
-
-                has successfully completed internship in
-
-            </p>
-
-            <h3>{{ domain }}</h3>
-
-            <p class="text">
-
-                using <b>{{ skill }}</b> technology
-                at <b>{{ company }}</b>.
-
-            </p>
-
-            <div class="duration-box">
-
-                📅 Internship Duration :
-                <b>2 Months</b>
-
+            <div class="signature">
+                <h3>HR Team</h3>
+                <p>AI Internship Portal</p>
             </div>
-
-            <div class="date-box">
-
-                ✅ Internship Start :
-                <b>01 May 2026</b>
-
-                <br><br>
-
-                ✅ Internship End :
-                <b>01 July 2026</b>
-
-            </div>
-
         </div>
 
-        <div class="bottom-section">
-
-            <div class="sign">
-
-                ___________________
-
-                <br>
-
-                HR Team
-
-            </div>
-
-            <div class="stamp">
-
-                ⭐ Approved
-
-            </div>
-
+        <div class="btn-box">
+            <a href="#" class="btn">Download Offer Letter</a>
         </div>
 
     </div>
@@ -95,3 +185,32 @@
 
 </body>
 </html>
+```
+
+---
+
+# app.py me add karo
+
+```python
+from datetime import datetime
+
+@app.route('/offer-letter')
+def offer_letter():
+    return render_template(
+        'offer_letter.html',
+        name='Shivam Kumar',
+        email='shivam@gmail.com',
+        mobile='9876543210',
+        qualification='B.Tech CSE',
+        internship='Machine Learning',
+        date=datetime.now().strftime('%d-%m-%Y')
+    )
+```
+
+---
+
+# Phir browser me open karo
+
+```bash
+https://your-link.onrender.com/offer-letter
+```
