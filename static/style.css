@@ -25,11 +25,13 @@ body{
     box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
+/* LEFT PANEL */
+
 .left-panel{
     width:40%;
     background:linear-gradient(to bottom,#8e2de2,#4a00e0);
     color:white;
-    padding:30px;
+    padding:25px;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -38,39 +40,47 @@ body{
 }
 
 .left-panel h1{
-    font-size:42px;
-    margin-bottom:15px;
+    font-size:38px;
+    margin-bottom:10px;
 }
 
 .left-panel p{
-    font-size:20px;
+    font-size:18px;
     line-height:1.5;
 }
 
+/* IMAGE SIZE FIX */
+
 .left-panel img{
-    width:120px;
-    margin-top:15px;
+    width:90px;
+    margin-top:10px;
 }
+
+/* RIGHT PANEL */
 
 .right-panel{
     width:60%;
-    padding:40px;
+    padding:35px;
 }
 
 .right-panel h2{
     margin-bottom:20px;
     color:#333;
-    font-size:30px;
+    font-size:28px;
+    text-align:center;
 }
+
+/* FORM */
 
 form{
     display:flex;
     flex-direction:column;
 }
 
-input,select{
+input,
+select{
     padding:14px;
-    margin-bottom:15px;
+    margin-bottom:14px;
     border:1px solid #ccc;
     border-radius:10px;
     font-size:16px;
@@ -96,6 +106,8 @@ button{
 button:hover{
     background:#2575fc;
 }
+
+/* RESULT PAGE */
 
 .result-box{
     text-align:center;
@@ -135,11 +147,12 @@ button:hover{
     }
 
     .left-panel p{
-        font-size:16px;
+        font-size:15px;
     }
 
     .left-panel img{
-        width:140px;
+        width:70px;
+        margin-top:5px;
     }
 
     .right-panel{
@@ -148,14 +161,13 @@ button:hover{
     }
 
     .right-panel h2{
-        font-size:24px;
-        text-align:center;
+        font-size:22px;
     }
 
     input,
     select,
     button{
         width:100%;
-        font-size:16px;
+        font-size:15px;
     }
 }
